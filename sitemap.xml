@@ -1,0 +1,9 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in site.data.seo %}{% assign m = p[1] %}{% unless m.noindex %}
+  <url><loc>{{ site.site_url }}{{ m.path }}</loc></url>
+{%- endunless %}{% endfor %}
+</urlset>

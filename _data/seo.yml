@@ -1,0 +1,71 @@
+# ============================================================
+#  ВСЕ МЕТА-ДАННЫЕ САЙТА — ALL SITE META DATA IN ONE PLACE
+#  Edit here in GitHub (pencil icon) → Commit → live in ~1–2 min.
+#
+#  path        – page URL (slug) used for canonical + sitemap.
+#                The slug comes from the file name (team.html → /team).
+#                To change a slug, rename the file AND update this path
+#                and the links in the menu (site.js).
+#  title       – meta title (aim for ≤ 60 characters)
+#  description – meta description (aim for 120–160 characters)
+#  image       – optional share image (Open Graph); leave empty for default
+#  noindex     – true hides the page from Google/Yandex and the sitemap
+#
+#  Tip: if a text contains a colon ":" keep it inside quotes "…".
+# ============================================================
+
+index.html:
+  path: "/"
+  title: "publica — данные, ИТ-системы и ИИ для государства и бизнеса"
+  description: "IT-партнёр полного цикла в Центральной Азии: цифровая стратегия, информационные системы, данные и ИИ для государства и бизнеса — от аудита до сопровождения."
+  image: ""
+  noindex: false
+
+team.html:
+  path: "/team"
+  title: "Команда publica — инженеры, аналитики и архитекторы"
+  description: "Команда publica: специалисты по разработке и внедрению корпоративных и государственных систем. Работаем на русском, французском и английском языках."
+  image: ""
+  noindex: false
+
+cases.html:
+  path: "/cases"
+  title: "Проекты publica — 20 внедрений для государства и бизнеса"
+  description: "20 реализованных проектов для государства и госкомпаний, банков, логистики, медицины, промышленности, туризма и ритейла — от идеи до промышленной эксплуатации."
+  image: ""
+  noindex: false
+
+case.html:
+  path: "/case"
+  title: "Проект publica — кейс внедрения"
+  description: "Подробности проекта publica: задача, решение и результат внедрения информационной системы, данных или ИИ."
+  image: ""
+  noindex: false
+
+industry.html:
+  path: "/industry"
+  title: "Отрасли — цифровые решения publica для госсектора и бизнеса"
+  description: "Цифровые решения publica по отраслям: госуправление и госуслуги, туризм, здравоохранение, торговля и таможня, энергетика, финансы."
+  image: ""
+  noindex: false
+
+insights.html:
+  path: "/insights"
+  title: "Аналитика publica — цифровое государство, данные и ИИ"
+  description: "Статьи publica о цифровой стратегии, данных и ИИ в государственном управлении — взгляд из Кыргызстана и Центральной Азии."
+  image: ""
+  noindex: false
+
+article.html:
+  path: "/article"
+  title: "Статья publica — аналитика о цифровом государстве"
+  description: "Аналитика publica о цифровой трансформации, данных и искусственном интеллекте в государственном секторе."
+  image: ""
+  noindex: false
+
+contact.html:
+  path: "/contact"
+  title: "Связаться с publica — бесплатный экспресс-аудит"
+  description: "Оставьте заявку на бесплатный экспресс-аудит: пилот с реальными пользователями и первый измеримый результат примерно за 3 месяца. Бишкек · Париж."
+  image: ""
+  noindex: false

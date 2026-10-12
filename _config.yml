@@ -1,0 +1,9 @@
+# Общие настройки сайта (site-wide settings)
+site_url: "https://www.publicadigital.com"   # main domain, no trailing slash
+site_name: "publica"
+locale: "ru_RU"
+default_image: "/assets/og-image.jpg"         # share image used when a page has no own image
+gtm_id: "GTM-M3JXG7PP"                        # Google Tag Manager container (GA4 + Yandex Metrica live inside GTM)
+
+exclude:
+  - README.md

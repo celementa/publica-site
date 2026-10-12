@@ -1,14 +1,17 @@
+---
+---
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Отрасли publica</title>
+{% include seo-head.html %}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="site.css"></head>
 <body data-page="industry" data-nav="Отрасли">
+{% include gtm-body.html %}
 <div id="site-header"></div>
 
 <section class="phero"><div class="phero__bg" id="ibg"></div>
- <div class="wrap phero__in"><div class="crumbs"><a href="index.html">Главная</a><span>/</span><a href="index.html#industries">Отрасли</a><span>/</span><span id="icr"></span></div>
+ <div class="wrap phero__in"><div class="crumbs"><a href="/">Главная</a><span>/</span><a href="/#industries">Отрасли</a><span>/</span><span id="icr"></span></div>
  <div class="ihero"><div style="display:grid;gap:24px;min-width:0"><h1 class="h-xl" id="ititle" style="max-width:15ch"></h1><p class="lead" id="ilead"></p></div><div class="ihero__art" id="iart"></div></div>
  <div class="filters" id="iswitch" style="margin-top:12px"></div></div></section>
 <section class="sec"><div class="wrap split">
@@ -17,7 +20,7 @@
   <div class="panel" style="background:var(--ice)"><span class="eyebrow">Где применить</span><ul class="checks" id="iwhere"></ul></div>
   <div class="panel" style="background:var(--ice)"><span class="eyebrow">Технологии</span><div class="tags" id="itech"></div><p style="font-size:14px;color:var(--ink-2)">Основа любого проекта: серверы и DevOps, безопасность, хранилища данных, интеграции. Свои серверы, частное облако или гибрид.</p></div>
  </div></div></section>
-<section class="sec ice"><div class="wrap"><div class="sec-head sec-head--row rv"><div style="display:grid;gap:14px"><span class="eyebrow">Опыт команды</span><h2 class="h-l">Проекты в отрасли</h2><p class="lead" id="iexp"></p></div><a class="btn" href="cases.html"><span class="btn__dot"></span>Все проекты</a></div>
+<section class="sec ice"><div class="wrap"><div class="sec-head sec-head--row rv"><div style="display:grid;gap:14px"><span class="eyebrow">Опыт команды</span><h2 class="h-l">Проекты в отрасли</h2><p class="lead" id="iexp"></p></div><a class="btn" href="/cases"><span class="btn__dot"></span>Все проекты</a></div>
  <div class="cgrid" id="icases"></div></div></section>
 <div id="site-cta"></div>
 <div id="site-footer"></div>

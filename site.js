@@ -7,19 +7,19 @@ const ARROW_L='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 const ARROW_R='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 window.ARROWS={L:ARROW_L,R:ARROW_R};
 const home=document.body.dataset.page==='home';
-const H=home?'':'index.html';
+const H=home?'':'/';
 
 /* ---------- header ---------- */
-const nav=[['Отрасли',H+'#industries'],['Возможности',H+'#capabilities'],['Проекты','cases.html'],['Перспективы',H+'#opportunity'],['Команда','team.html'],['Аналитика','insights.html']];
+const nav=[['Отрасли',H+'#industries'],['Возможности',H+'#capabilities'],['Проекты','/cases'],['Перспективы',H+'#opportunity'],['Команда','/team'],['Аналитика','/insights']];
 const hdr=$('#site-header');
 if(hdr){
   const cur=document.body.dataset.nav||'';
   hdr.outerHTML=`<header class="hdr" id="hdr"><div class="wrap hdr__in">
-  <a class="logo" href="${home?'#top':'index.html'}" aria-label="publica — на главную">${LOGO}<span>publica</span></a>
+  <a class="logo" href="${home?'#top':'/'}" aria-label="publica — на главную">${LOGO}<span>publica</span></a>
   <nav class="nav" aria-label="Основное меню">${nav.map(([t,h])=>`<a href="${h}" class="${cur===t?'on':''}">${t}</a>`).join('')}</nav>
-  <div class="hdr__cta"><a class="btn" href="contact.html"><span class="btn__dot"></span>Связаться</a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><i></i></button></div>
+  <div class="hdr__cta"><a class="btn" href="/contact"><span class="btn__dot"></span>Связаться</a><button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><i></i></button></div>
   </div></header>
-  <div class="mnav" id="mnav">${nav.map(([t,h],i)=>`<a class="big" style="transition-delay:${.08+i*.05}s" href="${h}">${t}</a>`).join('')}<a class="btn btn--light" href="contact.html"><span class="btn__dot"></span>Связаться</a></div>`;
+  <div class="mnav" id="mnav">${nav.map(([t,h],i)=>`<a class="big" style="transition-delay:${.08+i*.05}s" href="${h}">${t}</a>`).join('')}<a class="btn btn--light" href="/contact"><span class="btn__dot"></span>Связаться</a></div>`;
 }
 const header=$('#hdr');
 const onScroll=()=>{ if(header) header.classList.toggle('solid', document.body.dataset.solid==='1' || scrollY>40 || document.documentElement.classList.contains('menu-open')); };
@@ -34,13 +34,13 @@ if(cta) cta.outerHTML=`<section class="sec ice"><div class="wrap cta">
   <div class="cta__img rv" id="ctaImg"><img src="assets/gov-new-portrait.jpg" alt="Новое административное здание на фоне гор" loading="lazy"></div>
   <div class="cta__txt rv rv-d1"><span class="eyebrow">Связаться с нами</span><h2 class="h-l">Обсудим ваш проект</h2>
   <p class="lead">Расскажите о задаче, и мы предложим решение. Начинаем с бесплатного экспресс-аудита одного направления, первый измеримый результат — примерно через 3 месяца.</p>
-  <a class="btn" href="contact.html"><span class="btn__dot"></span>Обсудить проект</a></div></div></section>`;
+  <a class="btn" href="/contact"><span class="btn__dot"></span>Обсудить проект</a></div></div></section>`;
 const ftr=$('#site-footer');
 if(ftr) ftr.outerHTML=`<footer class="ftr"><div class="wrap">
   <div class="ftr__top">
-   <div><a class="logo" href="index.html">${LOGO}<span>publica</span></a><p>От цели до результата. Превращаем данные и процессы в работающие системы для бизнеса и государства.</p></div>
-   <div><h6>Разделы</h6><ul><li><a href="index.html">Главная</a></li><li><a href="industry.html#gov">Отрасли</a></li><li><a href="index.html#capabilities">Возможности</a></li><li><a href="cases.html">Проекты</a></li><li><a href="contact.html">Контакты</a></li></ul></div>
-   <div><h6>Компания</h6><ul><li><a href="team.html">Команда</a></li><li><a href="index.html#opportunity">Перспективы</a></li><li><a href="insights.html">Аналитика</a></li><li><a href="index.html#launch">Как начать</a></li></ul></div>
+   <div><a class="logo" href="/">${LOGO}<span>publica</span></a><p>От цели до результата. Превращаем данные и процессы в работающие системы для бизнеса и государства.</p></div>
+   <div><h6>Разделы</h6><ul><li><a href="/">Главная</a></li><li><a href="/industry#gov">Отрасли</a></li><li><a href="/#capabilities">Возможности</a></li><li><a href="/cases">Проекты</a></li><li><a href="/contact">Контакты</a></li></ul></div>
+   <div><h6>Компания</h6><ul><li><a href="/team">Команда</a></li><li><a href="/#opportunity">Перспективы</a></li><li><a href="/insights">Аналитика</a></li><li><a href="/#launch">Как начать</a></li></ul></div>
    <div><h6>Правовая информация</h6><ul><li><a href="#">Политика конфиденциальности</a></li><li><a href="#">Условия использования</a></li></ul></div>
   </div>
   <div class="ftr__bot"><span>© PUBLICA 2026. Все права защищены. Бишкек · Париж</span>
@@ -144,7 +144,7 @@ function slider8(){
   const body=$('.slider8__body',s), cnt=$('.slider8__count',s), imgs=$$('.slider8__img > *',s);
   const render=()=>{const c=items[i];cnt.textContent=`${i+1}/${items.length}`;
     body.innerHTML=`<span class="eyebrow">${c.tag}</span><h3 class="h-m">${c.title}</h3><p class="lead">${c.lead}</p><div class="mini-metrics">${c.kpi.slice(0,2).map(k=>`<div><b>${k[0]}</b><span>${k[1]}</span></div>`).join('')}</div>`;
-    imgs.forEach((im,j)=>im.classList.toggle('on',j===i)); $('.slider8__nav .lnk',s).href='case.html#'+c.id;};
+    imgs.forEach((im,j)=>im.classList.toggle('on',j===i)); $('.slider8__nav .lnk',s).href='/case#'+c.id;};
   const go=d=>{body.classList.add('out');setTimeout(()=>{i=(i+d+items.length)%items.length;render();body.classList.remove('out');},RM?0:300);};
   $('[data-s8="prev"]',s).addEventListener('click',()=>go(-1));$('[data-s8="next"]',s).addEventListener('click',()=>go(1));
   render();
@@ -158,8 +158,8 @@ function ctaZoom(){const c=$('#ctaImg');if(!c)return;if(!('IntersectionObserver'
 
 /* ---------- helpers for pages ---------- */
 window.coverHTML=(c,cls='')=>c.img?`<img class="${cls}" src="${c.img}" alt="${c.title}" loading="lazy">`:`<div class="cover ${cls}"><span>${c.client}</span><b>${c.n}</b></div>`;
-window.caseCard=c=>`<a class="ccard rv" href="case.html#${c.id}" data-ind="${c.ind}"><div class="ccard__img">${coverHTML(c)}</div><div class="ccard__meta"><span class="chip">${(P.industries.find(x=>x.id===c.ind)||{}).title}</span><span>${c.client}</span></div><h4>${c.title}</h4><p>${c.lead}</p></a>`;
-window.postCard=a=>`<a class="post rv" href="article.html#${a.id}" data-cat="${a.cat}"><div class="post__img"><img src="${a.img}" alt="" loading="lazy"><span class="post__view">Читать</span></div><div class="post__meta"><span class="chip">${a.cat}</span><span>${a.read} чтения</span></div><h4>${a.title}</h4></a>`;
+window.caseCard=c=>`<a class="ccard rv" href="/case#${c.id}" data-ind="${c.ind}"><div class="ccard__img">${coverHTML(c)}</div><div class="ccard__meta"><span class="chip">${(P.industries.find(x=>x.id===c.ind)||{}).title}</span><span>${c.client}</span></div><h4>${c.title}</h4><p>${c.lead}</p></a>`;
+window.postCard=a=>`<a class="post rv" href="/article#${a.id}" data-cat="${a.cat}"><div class="post__img"><img src="${a.img}" alt="" loading="lazy"><span class="post__view">Читать</span></div><div class="post__meta"><span class="chip">${a.cat}</span><span>${a.read} чтения</span></div><h4>${a.title}</h4></a>`;
 window.tCard=t=>`<div class="tcard"><div class="tcard__ph"><img src="${t.img}" alt="${t.name}" loading="lazy"></div><div><h4>${t.name}</h4><div class="role">${t.role}</div></div>${t.txt?`<p>${t.txt}</p>`:''}</div>`;
 
 window.addEventListener('DOMContentLoaded',()=>{});
