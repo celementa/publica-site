@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Проекты publica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css"></head>
+<body data-page="cases" data-nav="Проекты">
+<div id="site-header"></div>
+
+<section class="phero"><div class="phero__bg" style="background-image:url('assets/case-fm.jpg')"></div>
+ <div class="wrap phero__in"><div class="crumbs"><a href="index.html">Главная</a><span>/</span><span>Проекты</span></div>
+ <h1 class="h-xl" style="max-width:15ch">Реализованные проекты</h1>
+ <p class="lead">20 проектов для государства и госкомпаний, банков, логистики, медицины, промышленности, туризма и розничных сетей: от идеи до промышленной эксплуатации.</p></div></section>
+<section class="sec"><div class="wrap">
+ <div class="kpis rv" style="margin-bottom:64px"><div><b>20</b><span>проектов полного цикла</span></div><div><b>20 450</b><span>пользователей крупнейшей системы</span></div><div><b>9</b><span>отраслей</span></div><div><b>2</b><span>страны реализации: Франция и Россия</span></div></div>
+ <div class="filters rv" id="filters" style="margin-bottom:40px"></div>
+ <div class="cgrid" id="grid"></div></div></section>
+<section class="sec ice"><div class="wrap">
+ <div class="sec-head rv"><span class="eyebrow">Принципы работы</span><h2 class="h-l" style="max-width:18ch">Работаем прозрачно и под контролем заказчика</h2><p class="lead">Шесть правил, которые мы закрепляем в каждом договоре — с компанией или с государственным заказчиком.</p></div>
+ <div class="prin rv">
+  <div><h4>Всё остаётся у заказчика</h4><p>Данные, исходный код, документация и права на систему принадлежат заказчику. Размещение на его серверах или в стране.</p></div>
+  <div><h4>Полная прозрачность</h4><p>Показ результата каждые 2 недели, открытый доступ к задачам и коду, понятная отчётность для руководства.</p></div>
+  <div><h4>Безопасность с первого дня</h4><p>Модель угроз, защита персональных данных, требования национального законодательства, аудит доступа.</p></div>
+  <div><h4>Без дублирования систем</h4><p>Интегрируемся с 1С, ERP, WMS, «Тундук» и действующими системами, а не строим параллельные.</p></div>
+  <div><h4>Знания остаются у заказчика</h4><p>Обучаем специалистов, передаём инструкции и регламенты, усиливаем местные команды.</p></div>
+  <div><h4>Поэтапная приёмка</h4><p>Каждый этап заканчивается измеримым результатом и решением заказчика о следующем шаге.</p></div>
+ </div></div></section>
+<div id="site-cta"></div>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="site.js"></script>
+<script>
+const P=PUB;const g=document.getElementById('grid');g.innerHTML=P.cases.map(caseCard).join('');
+const f=document.getElementById('filters');const used=P.industries.filter(i=>P.cases.some(c=>c.ind===i.id));
+f.innerHTML=`<button class="on" data-f="all">Все</button>`+used.map(i=>`<button data-f="${i.id}">${i.title}</button>`).join('');
+f.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+ g.querySelectorAll('.ccard').forEach(c=>{c.hidden=!(b.dataset.f==='all'||c.dataset.ind===b.dataset.f);c.classList.remove('pre');});});
+const h=location.hash.slice(1);PUBinit();if(h){const b=f.querySelector(`[data-f="${h}"]`);if(b)b.click();}
+</script>
+</body></html>

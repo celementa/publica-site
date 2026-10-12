@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Связаться с publica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css"></head>
+<body data-page="contact" data-nav="">
+<div id="site-header"></div>
+
+<section class="phero" style="padding-bottom:0"><div class="phero__bg" style="background-image:url('assets/mountains.jpg');opacity:.25"></div>
+ <div class="wrap phero__in"><div class="crumbs"><a href="index.html">Главная</a><span>/</span><span>Контакты</span></div>
+ <h1 class="h-xl" style="max-width:14ch">Начнём с одного направления.</h1>
+ <p class="lead">Бесплатный экспресс-аудит, предварительные требования, пилот с реальными пользователями и первый измеримый результат примерно за 3 месяца.</p></div></section>
+<section class="sec dark" style="padding-top:clamp(24px,4vw,48px)"><div class="wrap split">
+ <form class="form rv" id="cform" novalidate>
+  <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" required autocomplete="name" placeholder="Айгуль Асанова"></div>
+  <div class="field"><label for="f-org">Организация</label><input id="f-org" name="org" autocomplete="organization" placeholder="Министерство, компания"></div>
+  <div class="field"><label for="f-mail">Email</label><input id="f-mail" type="email" name="email" required autocomplete="email" placeholder="name@example.kg"></div>
+  <div class="field"><label for="f-tel">Телефон</label><input id="f-tel" type="tel" name="tel" autocomplete="tel" placeholder="+996 ..."></div>
+  <div class="field full"><label for="f-dir">Направление</label><select id="f-dir" name="dir"><option>Данные и планирование</option><option>Информационные системы и порталы</option><option>Интеграции и 1С</option><option>Логистика</option><option>Платежи и финансы</option><option>Искусственный интеллект</option><option>Кадры и обучение</option><option>Другое</option></select></div>
+  <div class="field full"><label for="f-msg">Задача</label><textarea id="f-msg" name="msg" placeholder="Коротко опишите задачу и действующие системы"></textarea></div>
+  <div class="full" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><button class="btn btn--light" type="submit"><span class="btn__dot"></span>Отправить заявку</button><p class="form-note" id="fnote" role="status">Отвечаем в течение двух рабочих дней.</p></div>
+ </form>
+ <div class="rv rv-d1" style="display:grid;gap:28px">
+  <div style="display:grid;gap:16px"><span class="eyebrow">Что нужно для старта</span><ul class="checks"><li>Приоритетное направление и контактное лицо</li><li>Описание процессов и систем в согласованном объёме</li><li>Рабочая группа из 2–3 человек на время диагностики</li></ul></div>
+  <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+   <div class="contact-card"><b>Максим Брюнелен</b><span>CEO и основатель</span><div class="tel">+7 911 816-89-33</div><button class="copy" data-copy="+7 911 816-89-33">Скопировать номер</button></div>
+   <div class="contact-card"><b>Константин Барко</b><span>Управляющий партнёр</span><div class="tel">+33 6 65 54 13 39</div><button class="copy" data-copy="+33 6 65 54 13 39">Скопировать номер</button></div>
+  </div>
+  <p style="color:var(--on-dark-2);font-size:15px">Бишкек · Париж. Прямой доступ к руководству, архитектору и аналитику проекта на всех этапах.</p>
+ </div></div></section>
+<div id="site-cta"></div>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="site.js"></script>
+<script>
+document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();const f=e.target,n=document.getElementById('fnote');
+ if(!f.checkValidity()){n.className='form-note';n.textContent='Заполните имя и корректный email.';f.querySelector(':invalid').focus();return;}
+ n.className='form-note ok';n.textContent='Прототип: отправка формы подключается при переносе сайта на Framer.';});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.copy;const done=()=>{b.textContent='Скопировано';setTimeout(()=>b.textContent='Скопировать номер',1800)};
+ try{navigator.clipboard.writeText(t).then(done,()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling);s.removeAllRanges();s.addRange(r);});}catch(e){}}));
+document.body.dataset.solid='1';PUBinit();
+</script>
+</body></html>

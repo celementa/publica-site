@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Проект publica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css"></head>
+<body data-page="case" data-nav="Проекты">
+<div id="site-header"></div>
+
+<section class="phero"><div class="phero__bg" id="cbg"></div>
+ <div class="wrap phero__in"><div class="crumbs"><a href="index.html">Главная</a><span>/</span><a href="cases.html">Проекты</a><span>/</span><span id="ccr"></span></div>
+ <span class="eyebrow" id="ctag" style="color:var(--on-dark-2)"></span>
+ <h1 class="h-xl" id="ctitle" style="max-width:18ch"></h1>
+ <p class="lead" id="clead"></p></div></section>
+<section class="sec"><div class="wrap">
+ <div class="kpis rv" id="ckpi"></div>
+ <div class="split mt-l">
+  <div class="rv" style="display:grid;gap:22px"><span class="eyebrow">Что сделано</span><ul class="checks" id="cdone"></ul></div>
+  <div class="rv rv-d1" style="display:grid;gap:22px"><div class="ccard__img" id="cimg"></div><div class="panel" style="background:var(--ice)"><span class="eyebrow">Где применить</span><p class="h-s" id="ctr" style="font-family:var(--f-display);letter-spacing:-.03em;line-height:1.2"></p></div></div>
+ </div>
+ <div class="mt-l rv" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line-light);padding-top:28px"><a class="lnk" id="cprev" href="#">Предыдущий проект</a><a class="lnk" id="cnext" href="#">Следующий проект</a></div>
+</div></section>
+<div id="site-cta"></div>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="site.js"></script>
+<script>
+const P=PUB;function show(){const id=location.hash.slice(1)||'fm';const i=Math.max(0,P.cases.findIndex(c=>c.id===id));const c=P.cases[i];
+document.title=c.title+' · publica';
+document.getElementById('cbg').style.backgroundImage='none';
+ccr.textContent=c.client;ctag.textContent=`Кейс ${c.n} · ${c.tag} · ${c.client}`;ctitle.textContent=c.title;clead.textContent=c.lead;
+ckpi.innerHTML=c.kpi.map(k=>`<div><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
+cdone.innerHTML=c.done.map(d=>`<li>${d}</li>`).join('');cimg.innerHTML=coverHTML(c);ctr.textContent=c.transfer;
+const pv=P.cases[(i-1+P.cases.length)%P.cases.length],nx=P.cases[(i+1)%P.cases.length];
+cprev.href='#'+pv.id;cnext.href='#'+nx.id;cprev.textContent='← '+pv.client;cnext.textContent=nx.client+' →';if(window.rolls)rolls();}
+show();addEventListener('hashchange',()=>{show();scrollTo({top:0,behavior:'smooth'})});PUBinit();
+</script>
+</body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Статья publica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css"></head>
+<body data-page="article" data-nav="Аналитика">
+<div id="site-header"></div>
+
+<section class="phero"><div class="wrap phero__in" style="padding-bottom:120px"><div class="crumbs"><a href="index.html">Главная</a><span>/</span><a href="insights.html">Аналитика</a></div>
+ <div class="post__meta" style="color:var(--on-dark-2)"><span class="chip" id="acat"></span><span id="adate"></span><span>·</span><span id="aread"></span></div>
+ <h1 class="h-l" id="atitle" style="max-width:20ch"></h1><p class="lead" id="alead"></p></div></section>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="art-hero rv" id="aimg"></div>
+ <div class="prose mt-l" id="abody"></div>
+ <div class="mt-l"><div class="sec-head sec-head--row"><h2 class="h-m">Читайте также</h2><a class="lnk" href="insights.html">Все статьи</a></div><div class="posts" id="amore"></div></div></div></section>
+<div id="site-cta"></div>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="site.js"></script>
+<script>
+const P=PUB;function show(){const id=location.hash.slice(1)||P.articles[0].id;const a=P.articles.find(x=>x.id===id)||P.articles[0];
+document.title=a.title+' · publica';acat.textContent=a.cat;adate.textContent=a.date;aread.textContent=a.read+' чтения';atitle.textContent=a.title;alead.textContent=a.lead;
+aimg.innerHTML=`<img src="${a.img}" alt="">`;abody.innerHTML=a.body.map(([t,x])=>`<${t}>${x}</${t}>`).join('');
+amore.innerHTML=P.articles.filter(x=>x.id!==a.id).slice(0,3).map(postCard).join('');setupReveal();}
+show();addEventListener('hashchange',()=>{show();scrollTo({top:0,behavior:'smooth'})});PUBinit();
+</script>
+</body></html>
