@@ -16,6 +16,7 @@
  <p class="lead">Бесплатный экспресс-аудит, предварительные требования, пилот с реальными пользователями и первый измеримый результат примерно за 3 месяца.</p></div></section>
 <section class="sec dark" style="padding-top:clamp(24px,4vw,48px)"><div class="wrap split">
  <form class="form rv" id="cform" novalidate>
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
   <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" required autocomplete="name" placeholder="Айгуль Асанова"></div>
   <div class="field"><label for="f-org">Организация</label><input id="f-org" name="org" autocomplete="organization" placeholder="Министерство, компания"></div>
   <div class="field"><label for="f-mail">Email</label><input id="f-mail" type="email" name="email" required autocomplete="email" placeholder="name@example.kg"></div>
@@ -37,9 +38,18 @@
 <script src="data.js"></script>
 <script src="site.js"></script>
 <script>
-document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();const f=e.target,n=document.getElementById('fnote');
+document.getElementById('cform').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,n=document.getElementById('fnote'),b=f.querySelector('button[type=submit]');
  if(!f.checkValidity()){n.className='form-note';n.textContent='Заполните имя и корректный email.';f.querySelector(':invalid').focus();return;}
- n.className='form-note ok';n.textContent='Прототип: отправка формы подключается при переносе сайта на Framer.';});
+ const v=k=>(f.elements[k]&&f.elements[k].value||'').trim();
+ const data={access_key:'62f59a2b-4a89-4b08-8bc7-a05930ae904a',subject:'Новая заявка с publicadigital.com — '+v('name'),from_name:'publica — сайт',replyto:v('email'),
+  'Имя':v('name'),'Организация':v('org'),'Email':v('email'),'Телефон':v('tel'),'Направление':v('dir'),'Задача':v('msg'),'Страница':location.href,botcheck:f.elements.botcheck.checked};
+ b.disabled=true;n.className='form-note';n.textContent='Отправляем…';
+ try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});const j=await r.json();
+  if(r.ok&&j.success){n.className='form-note ok';n.textContent='Спасибо! Заявка отправлена — мы ответим в течение двух рабочих дней.';f.reset();
+   window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'form_submit_success',form_id:'contact',form_direction:data['Направление']});}
+  else throw new Error(j.message||'error');}
+ catch(err){n.className='form-note';n.textContent='Не удалось отправить. Попробуйте ещё раз или позвоните нам по номеру справа.';}
+ finally{b.disabled=false;}});
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.copy;const done=()=>{b.textContent='Скопировано';setTimeout(()=>b.textContent='Скопировать номер',1800)};
  try{navigator.clipboard.writeText(t).then(done,()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling);s.removeAllRanges();s.addRange(r);});}catch(e){}}));
 document.body.dataset.solid='1';PUBinit();
