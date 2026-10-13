@@ -1,23 +1,28 @@
+@font-face{font-family:"Glametrix";src:url("/assets/fonts/glametrix-light.woff2") format("woff2");font-weight:300;font-display:swap;size-adjust:135%;ascent-override:64%;descent-override:20%;line-gap-override:0%}
+@font-face{font-family:"Glametrix";src:url("/assets/fonts/glametrix-regular.woff2") format("woff2");font-weight:400;font-display:swap;size-adjust:135%;ascent-override:64%;descent-override:20%;line-gap-override:0%}
+@font-face{font-family:"Glametrix";src:url("/assets/fonts/glametrix-bold.woff2") format("woff2");font-weight:500 800;font-display:swap;size-adjust:135%;ascent-override:64%;descent-override:20%;line-gap-override:0%}
 /* publica — layout: navy/ice alternating full-bleed bands, 1360px content column, tight-tracked grotesk display */
 :root{
   --navy-950:#020829;
-  --navy-900:#050d33;
+  --navy-900:#030933;
   --navy-800:#0d1850;
   --navy-700:#1b2a66;
-  --navy-600:#2e3d80;
+  --navy-600:#3f4f7d;
   --steel:#8fa6d6;
   --mint:#7fe0b8;
-  --ice:#e4ebf4;
+  --ice:#e7edf4;
   --ice-2:#d5dfec;
   --paper:#ffffff;
-  --ink:#070f3d;
-  --ink-2:#3f4b7c;
+  --ink:#030933;
+  --ink-2:#3f4f7d;
   --on-dark:#e8eefb;
   --on-dark-2:#aab6d6;
   --line-dark:rgba(232,238,251,.14);
   --line-light:rgba(7,15,61,.12);
-  --f-display:"Inter Tight","Inter","Helvetica Neue",Arial,sans-serif;
-  --f-body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --f-display:"Glametrix","Inter","Helvetica Neue",Arial,sans-serif;
+  --f-body:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --graphite:#363c43;
+  --mist:#e0ebee;
   --wrap:1360px;
   --gut:clamp(16px,4vw,48px);
   --r:14px;
@@ -77,7 +82,7 @@ p{margin:0}
 .hdr.solid{background:var(--navy-950);box-shadow:0 1px 0 var(--line-dark)}
 .hdr__in{height:84px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
 .logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-size:26px;font-weight:500;letter-spacing:-.04em}
-.logo svg{width:30px;height:28px}
+.logo svg{height:30px;width:auto;display:block}
 .nav{display:flex;gap:22px}
 .nav a{font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;position:relative;padding-block:6px;opacity:.92}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
@@ -452,3 +457,10 @@ p{margin:0}
 @media (max-width:620px){.icard{aspect-ratio:auto;flex-basis:80vw;min-height:0}.icard__art{min-height:170px}.icard__art .art{max-width:240px}}
 
 @media (max-width:860px){.cta__img{aspect-ratio:4/3}.cta__img img{object-position:50% 40%}}
+
+/* ---------- brand typography (Glametrix display) ---------- */
+h1,h2,h3,h4,h5,.mnav a.big,.cap__tabs button,.scrub,.lab__q,.ladder b,.founder__cap b,.road b{letter-spacing:-.01em}
+.stat b,.mini-metrics b,.cover b,.scard__num,.lab__stats b,.bigfig,.ftr__word{letter-spacing:-.02em}
+.h-xl,.h-l{font-weight:700}
+.scard__cap{display:block;max-width:26ch;margin-top:8px;font-size:14px;line-height:1.4;color:var(--ink-2)}
+.sol__c .sol__what{margin:-4px 0 4px;color:var(--ink-2);font-size:15px;line-height:1.5}
