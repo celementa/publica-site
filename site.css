@@ -464,3 +464,5 @@ h1,h2,h3,h4,h5,.mnav a.big,.cap__tabs button,.scrub,.lab__q,.ladder b,.founder__
 .h-xl,.h-l{font-weight:700}
 .scard__cap{display:block;max-width:26ch;margin-top:8px;font-size:14px;line-height:1.4;color:var(--ink-2)}
 .sol__c .sol__what{margin:-4px 0 4px;color:var(--ink-2);font-size:15px;line-height:1.5}
+.contact-card .mail{justify-self:start;margin-top:8px;font-size:15px;color:var(--on-dark,#e8eefb);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(232,238,251,.35)}
+.contact-card .mail:hover{text-decoration-color:currentColor}
