@@ -41,7 +41,7 @@
 document.getElementById('cform').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,n=document.getElementById('fnote'),b=f.querySelector('button[type=submit]');
  if(!f.checkValidity()){n.className='form-note';n.textContent='Заполните имя и корректный email.';f.querySelector(':invalid').focus();return;}
  const v=k=>(f.elements[k]&&f.elements[k].value||'').trim();
- const data={access_key:'62f59a2b-4a89-4b08-8bc7-a05930ae904a',subject:'Новая заявка с publicadigital.com — '+v('name'),from_name:'publica — сайт',replyto:v('email'),
+ const data={access_key:'62f59a2b-4a89-4b08-8bc7-a05930ae904a',subject:'Новая заявка с publica.kg — '+v('name'),from_name:'publica — сайт',replyto:v('email'),
   'Имя':v('name'),'Организация':v('org'),'Email':v('email'),'Телефон':v('tel'),'Направление':v('dir'),'Задача':v('msg'),'Страница':location.href,botcheck:f.elements.botcheck.checked};
  b.disabled=true;n.className='form-note';n.textContent='Отправляем…';
  try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});const j=await r.json();

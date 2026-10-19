@@ -1,5 +1,5 @@
 # Общие настройки сайта (site-wide settings)
-site_url: "https://www.publicadigital.com"   # main domain, no trailing slash
+site_url: "https://publica.kg"   # main domain, no trailing slash
 site_name: "publica"
 locale: "ru_RU"
 default_image: "/assets/og-image.jpg"         # share image used when a page has no own image

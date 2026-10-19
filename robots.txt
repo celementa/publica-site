@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.publicadigital.com/sitemap.xml
+Sitemap: https://publica.kg/sitemap.xml
