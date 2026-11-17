@@ -1,3 +1,15 @@
+/* ---------- visitor source (shared by publica.kg and all *.publica.kg subdomains) ---------- */
+(function(){
+  const K='pub_src',get=()=>{const m=document.cookie.match(/(?:^|; )pub_src=([^;]*)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]))}catch(e){return null}};
+  const q=new URLSearchParams(location.search),utm=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].map(k=>q.get(k)?k.replace('utm_','')+'='+q.get(k):'').filter(Boolean).join(' · ');
+  const ext=document.referrer&&!/(^|\.)publica\.kg$/.test(new URL(document.referrer,location.href).hostname)?document.referrer:'';
+  let s=get();
+  if(!s||utm){s={site:location.hostname,page:location.pathname,ref:ext||'прямой заход',utm:utm||''};
+    const dom=/publica\.kg$/.test(location.hostname)?';domain=.publica.kg':'';
+    try{document.cookie=K+'='+encodeURIComponent(JSON.stringify(s))+';path=/;max-age=7776000;SameSite=Lax'+dom;}catch(e){}}
+  window.pubSource=()=>{const f=get()||s;return{'Сайт заявки':location.hostname,'Страница заявки':location.href,
+    'Предыдущая страница':document.referrer||'—','Первый визит: сайт и страница':f.site+f.page,'Первый визит: источник':f.ref,'UTM':f.utm||'—'};};
+})();
 (function(){
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const P=window.PUB||{};
