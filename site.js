@@ -52,7 +52,7 @@ if(ftr) ftr.outerHTML=`<footer class="ftr"><div class="wrap">
   <div class="ftr__top">
    <div><a class="logo" href="/">${LOGO}</a><p>От цели до результата. Превращаем данные и процессы в работающие системы для бизнеса и государства.</p></div>
    <div><h6>Разделы</h6><ul><li><a href="/">Главная</a></li><li><a href="/industry#gov">Отрасли</a></li><li><a href="/#capabilities">Возможности</a></li><li><a href="/cases">Проекты</a></li><li><a href="/contact">Контакты</a></li></ul></div>
-   <div><h6>Направления</h6><ul><li><a href="/#about">IT-сервисы</a></li><li><a href="https://marketing.publica.kg/">Маркетинг</a></li><li><a href="https://pay.publica.kg/">Переводы</a></li></ul></div>
+   <div><h6>Направления</h6><ul><li><a href="/#about">IT-сервисы</a></li><li><a href="https://marketing.publica.kg/">Маркетинг</a></li><li><a href="https://pay.publica.kg/">PublicaPay</a></li></ul></div>
    <div><h6>Компания</h6><ul><li><a href="/team">Команда</a></li><li><a href="/#opportunity">Перспективы</a></li><li><a href="/insights">Аналитика</a></li><li><a href="/#launch">Как начать</a></li></ul></div>
    <div><h6>Правовая информация</h6><ul><li><a href="#">Политика конфиденциальности</a></li><li><a href="#">Условия использования</a></li></ul></div>
   </div>
